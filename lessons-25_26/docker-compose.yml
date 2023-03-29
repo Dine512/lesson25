@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  api:
+    build:
+      context: .
+    image: dine512/skypro
+    ports:
+      - 80:80
+    volumes:
+      - ./docker_config.py:/code/default_config.py
+  pg:
+    image: postgres:9.5
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: flask_app
+      POSTGRES_PASSWORD: flask_app_password
+      POSTGRES_DB: flask_app

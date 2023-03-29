@@ -8,7 +8,7 @@ from sqlalchemy.exc import IntegrityError
 app = Flask("app")
 app.config.from_pyfile("default_config.py")
 app.config.from_envvar("APP_SETTINGS", silent=True)
-
+app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql:///flask_app:flask_app_password@pg/flask_app"
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
@@ -46,3 +46,4 @@ def register():
         return jsonify({"error": "already_exists"}), 400
 
     return jsonify({"username": user.username}), 200
+app.run()
