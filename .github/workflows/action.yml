@@ -8,3 +8,5 @@ jobs:
         uses: actions/checkout@v2
       - name: docker build
         run: docker build -t dine512/skypro:$GITHUB_REF_NAME-$GITHUB_RUN_ID ./lessons-25_26
+      - name: docker push
+        run: docker push dine512/skypro:$GITHUB_REF_NAME-$GITHUB_RUN_ID
