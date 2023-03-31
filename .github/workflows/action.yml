@@ -26,7 +26,7 @@ jobs:
         run: |
           mkdir deploy
           cat ./lessons-25_26/docker-compose-ci.yml | envsubst > deploy/docker-compose.yml
-          cat /lessons-25_26/docker_ci_config.py | envsubst > deploy/docker-config.py
+          cat ./lessons-25_26/docker_ci_config.py | envsubst > deploy/docker-config.py
       - name: copy files to server
         uses: appleboy/scp-action@master
         with:
