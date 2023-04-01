@@ -44,4 +44,4 @@ jobs:
           key: ${{ secrets.KEY }}
           script: |
             cd flask_app_ci
-            sudo docket-compose up -d
+            sudo docker-compose up -d
