@@ -36,3 +36,12 @@ jobs:
           source: "deploy/docker-compose.yml,deploy/docker-config.py"
           target: "flask_app_ci"
           strip_components: 1
+      - name: deploy app
+        uses: appleboy/ssh-action@v0.1.8
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          script: |
+            cd flask_app_ci
+            sudo docket-compose up -d
